@@ -2,6 +2,7 @@ import draw
 import repair
 import destroy
 import tsplib95
+import postProcess
 import networkx as nx
 import numpy.random as rnd
 from alns import ALNS, State
@@ -12,7 +13,7 @@ from alns.criteria import HillClimbing
 SEED = 9876
 
 random_state = rnd.RandomState(SEED)
-data = tsplib95.load_problem(r'C:\Users\Administrator\Desktop\ALNS\output\data.tsp')
+data = tsplib95.load_problem(r'E:\Github\ALNS\output\data.tsp')
 state = TspState(list(data.node_coords.items()), {})
 
 # alns
@@ -41,5 +42,13 @@ _, ax = plt.subplots(figsize=(12, 6))
 result.plot_objectives(ax=ax, lw=2)
 draw.draw_graph(data, initial_solution.to_graph())
 draw.draw_graph(data, solution.to_graph())
-plt.show()
 
+# post processing
+new_solution = postProcess.post_process(solution)
+new_objective = new_solution.objective()
+
+print("New heuristic objective is {0}.".format(new_objective))
+print('This is {0:.1f}% worse than the optimal solution, which is {1}.'
+      .format(100 * (new_objective - optimal) / optimal, optimal))
+draw.draw_graph(data, new_solution.to_graph())
+plt.show()

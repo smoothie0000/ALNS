@@ -1,7 +1,7 @@
 import xlrd
 
 def parseXML():
-  xml_path = r'C:\Users\Administrator\Desktop\ALNS\data\data.xlsx'
+  xml_path = r'E:\Github\ALNS\data\data.xlsx'
   wb = xlrd.open_workbook(xml_path)
   sheet1 = wb.sheet_by_index(0)
 

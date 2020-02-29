@@ -3,7 +3,7 @@ import math
 solution = [0]
 
 def genTour(total_distance, solution):
-  file = open(r'C:\Users\Administrator\Desktop\ALNS\output\init_solution.opt.tour','w+')
+  file = open(r'E:\Github\ALNS\output\init_solution.opt.tour','w+')
   file.write('''NAME: Yildiz
 COMMENT: Tour length {}
 TYPE: TOUR

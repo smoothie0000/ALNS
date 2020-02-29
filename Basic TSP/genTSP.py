@@ -1,5 +1,5 @@
 def genTSP(data):
-  file = open(r'C:\Users\Administrator\Desktop\ALNS\output\data.tsp','w+')
+  file = open(r'E:\Github\ALNS\output\data.tsp','w+')
   file.write('''NAME : Yildiz
 COMMENT : ALNS solution
 TYPE : TSP
